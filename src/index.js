@@ -2,7 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const url = 'https://wordsapiv1.p.rapidapi.com/words/hatchback/typeOf';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '21210d65a1msha43ea28b86b0a5ap190e59jsn2385fb4b68f2',
+		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +27,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
